@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/0084282f17.js" crossorigin="anonymous"></script>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: red;
+  color: white;
+  font-size: 200%;
+  padding: 19px 20px 16px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  border-radius: 50%;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #b4b4b4;
+  border-radius: 10%;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+ textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 50px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+ .form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+} 
+
+/* Add a red background color to the cancel button */
+ .cancel {
+  background-color: red;
+  border-radius: 10%;
+  font-size: x-large;
+  float: right;
+} 
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+
+
+
+<button class="open-button" onclick="openForm()"><i class="far fa-comment-alt"></i></button>
+
+<div class="chat-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+
+    <div style="display: flex;">
+    <h2 style="background-color: rgb(0, 153, 255);color: white;padding: 10px;width: 100%;">DotCom Support <button type="button" class="cancel" onclick="closeForm()"><i class="fas fa-window-close"></i></button></h2>
+   
+    </div>
+
+    <textarea placeholder="Type message.." name="msg" required></textarea>
+
+    <button type="submit" class="btn">Send</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+</body>
+</html>
